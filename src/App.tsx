@@ -1,8 +1,9 @@
-import { Box, Alert, ThemeProvider } from "@mui/material";
+import { Alert, ThemeProvider } from "@mui/material";
 import SearchBar from "./SearchBar";
 import { fetchUser } from "./api/fetchUser";
 import { useState } from "react";
 import UserDetails from "./UserDetails";
+import { AppContainer, AppContentContainer } from "./styles";
 import Header from "./Header";
 import { theme } from "./theme";
 
@@ -34,32 +35,16 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          minHeight: "100vh",
-          bgcolor: "#141D2F",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            width: "800px",
-            pt: 15,
-            gap: 2,
-          }}
-        >
+      <AppContainer>
+        <AppContentContainer>
           <Header />
           <SearchBar onSearch={handleSearch} />
           {errorMessage && (
             <Alert severity="error">{errorMessage}</Alert>
           )}
           {user != null && <UserDetails user={user} />}
-        </Box>
-      </Box>
+        </AppContentContainer>
+      </AppContainer>
     </ThemeProvider>
   );
 }

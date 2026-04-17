@@ -5,13 +5,13 @@ declare module '@mui/material/styles' {
         search: {
             background: string;
             icon: string;
-        };
+        },
     }
     interface PaletteOptions {
         search: {
             background: string;
             icon: string;
-        };
+        },
     }
 }
 
@@ -21,5 +21,8 @@ export const theme = createTheme({
             background: "#1E2A47",
             icon: "#0079FF",
         },
+        background: {
+            default: "#141D2F",
+        }
     },
 });
