@@ -1,5 +1,4 @@
 import { Box, Alert, ThemeProvider } from "@mui/material";
-import type { Moment } from "moment";
 import SearchBar from "./SearchBar";
 import { fetchUser } from "./api/fetchUser";
 import { useState } from "react";
@@ -10,7 +9,8 @@ import { theme } from "./theme";
 export type User = {
   avatar_url: string;
   login: string;
-  created_at: Moment;
+  created_at: string;
+  bio: string;
 }
 
 function App() {

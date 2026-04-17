@@ -26,19 +26,47 @@ export default function UserDetails({ user }: Props) {
             <Box
                 sx={{
                     display: "flex",
-                    flex: 3,
-                    justifyContent: "space-between",
+                    flex: 1,
+                    flexDirection: "column",
                     alignItems: "flex-start",
-                    marginTop: 5,
                     marginRight: 5,
                 }}
             >
-                <Box>
-                    <Typography variant="h4" sx={{ color: "#FFFFFF" }}>{user.login}</Typography>
+                <Box
+                    sx={{
+                        display: "flex",
+                        width: "100%",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        marginTop: 5,
+                        marginRight: 5,
+                    }}
+                >
+                    <Box>
+                        <Typography variant="h4" sx={{ color: "#FFFFFF" }}>{user.login}</Typography>
+                    </Box>
+                    <Box>
+                        <Typography sx={{ color: "#FFFFFF" }}>{`Joined ${moment(user.created_at).format("DD MMM YYYY")}`}</Typography>
+                    </Box>
                 </Box>
-                <Box>
-                    <Typography sx={{ color: "#FFFFFF" }}>{`Joined ${moment(user.created_at).format("DD MMM YYYY")}`}</Typography>
+                <Box
+                    sx={{
+                        flex: 1,
+                        color: "#fff",
+                        marginTop: 5,
+                    }}>
+                    {
+                        user.bio != null ?
+                            <Typography variant="body1">{user.bio}</Typography>
+                            : <Typography variant="body1">This user has no bio</Typography>
+                    }
                 </Box>
+                <Box sx={{
+                    flex: 1
+                }}>Footer row 1</Box>
+                <Box sx={{
+                    flex: 1
+                }}>Footer row 2</Box>
             </Box>
         </Box >
     );
