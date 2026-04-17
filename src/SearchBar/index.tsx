@@ -23,15 +23,15 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
     <Box
       component="form"
       onSubmit={handleSubmit}
-      sx={{
+      sx={(theme) => ({
         display: "flex",
         alignItems: "center",
         gap: 2,
         p: 1,
         borderRadius: 3,
-        backgroundColor: "#1E2A47",
+        backgroundColor: theme.palette.search.background,
         width: "100%",
-      }}
+      })}
     >
       <TextField
         fullWidth
@@ -44,7 +44,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
             disableUnderline: true,
             startAdornment: (
               <InputAdornment position="start" sx={{ ml: 2 }}>
-                <SearchIcon sx={{ color: "#0079FF", fontSize: 36 }} />
+                <SearchIcon sx={(theme) => ({ color: theme.palette.search.icon, fontSize: 36 })} />
               </InputAdornment>
             ),
           },
